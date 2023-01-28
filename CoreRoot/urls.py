@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core.pdf.viewsets import DownloadPDF
+from core.healthCheck.viewsets import HealthCheck
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(('core.routers', 'core'), namespace='core-api')),
     path('api/download/', DownloadPDF, name='download_pdf'),
+    path('health/', HealthCheck, name='health_check'),
 ]
